@@ -1,9 +1,13 @@
 import React from 'react'
-import RoomCard from '../components/Rooms/RoomCard'
+import Booking from '../components/Guests/Rooms/Booking'
+import Navbar from '../components/Navbar'
 
 function RoomPage() {
     return (
-        <RoomCard />
+        <>
+            <Navbar />
+            <Booking props={'Guest'} />
+        </>
     )
 }
 
