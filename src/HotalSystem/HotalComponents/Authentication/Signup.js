@@ -78,7 +78,7 @@ function Signup() {
                     value={userType}
                     onChange={(e) => setUserType(e.target.value)}
                 >
-                    <option value="">Select User Type</option>
+                    <option value="" disabled>Select User Type</option>
                     <option value="Guest">Guest</option>
                     <option disabled>Staff</option>
                     {/* <option value="Admin">Admin</option> */}

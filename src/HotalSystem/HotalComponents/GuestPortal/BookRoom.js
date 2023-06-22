@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
 function BookRoom() {
+    const [bookings, setBookings] = useState([{}]);
+
     const [checkInDate, setCheckInDate] = useState('');
     const [checkOutDate, setCheckOutDate] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
@@ -25,6 +27,48 @@ function BookRoom() {
             setTimeout(() => setShowToast(false), 4000)
         }
     };
+
+    useEffect(() => {
+        // Load booking history from browser storage (e.g., localStorage)
+        const savedBookings = JSON.parse(localStorage.getItem('bookings'));
+        if (savedBookings) {
+            setBookings(savedBookings);
+        }
+    }, []);
+    const handleBooking = (room) => {
+        // room.preventDefault();
+
+        if (checkInDate === '' || checkOutDate === '') {
+            setErrorMsg('Please enter both check-in and check-out dates.');
+        } else if (checkInDate > checkOutDate) {
+            setErrorMsg('Please correct  check-in and check-out date.');
+
+        }
+        else {
+
+
+            const newBooking = {
+                room,
+                checkInDate,
+                checkOutDate,
+                timestamp: new Date().toLocaleString(),
+            };
+
+            // Save the new booking to the history
+            const updatedBookings = [...bookings, newBooking];
+            setBookings(updatedBookings);
+
+            // Store the updated booking history in browser storage
+            localStorage.setItem('bookings', JSON.stringify(updatedBookings));
+            setCheckInDate('');
+            setCheckOutDate('');
+            setErrorMsg('');
+            setShowToast(true);
+            setTimeout(() => setShowToast(false), 4000)
+            console.log(bookings)
+        }
+    };
+
     return (
 
         <div id="modal">
@@ -72,7 +116,7 @@ function BookRoom() {
                             </div></div>
                         <div className="bg-gray-200 px-4 py-3 text-right">
                             <Link to='/Guest' type="button" className="py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-700 mr-2" ><i className="fas fa-times"></i> Cancel</Link>
-                            <button type="submit" onClick={handleSubmit} className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 mr-2"><i className="fas fa-plus"></i>Booking</button>
+                            <button type="submit" onClick={() => handleBooking('Room1')} className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 mr-2"><i className="fas fa-plus"></i>Booking</button>
                         </div>
                     </div>
                 </div>

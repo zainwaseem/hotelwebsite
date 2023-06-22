@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
 
+const roomArray = [{
+    // roomType: '',
+    // availability: '',
+    // price: '',
+    // amenities: ' ',
+    // occupancyStatus: '',
+}]
 const AddRoom = () => {
     const [selectedImage, setSelectedImage] = useState(null);
     const [roomType, setRoomType] = useState('');
@@ -8,7 +15,6 @@ const AddRoom = () => {
     const [amenities, setAmenities] = useState('');
     const [occupancyStatus, setOccupancyStatus] = useState('');
     const [showToast, setShowToast] = useState(false);
-
 
     const handleImageUpload = (event) => {
         const file = event.target.files[0];
@@ -19,7 +25,7 @@ const AddRoom = () => {
         e.preventDefault();
 
         const roomData = {
-
+            selectedImage,
             roomType,
             availability,
             price,
@@ -27,7 +33,9 @@ const AddRoom = () => {
             occupancyStatus,
 
         };
-
+        console.log(roomData);
+        // setRoomArray(roomData)
+        // console.log(roomArray)
         // onSubmit(roomData);
         // Reset the form fields
         setSelectedImage(null);
@@ -88,14 +96,20 @@ const AddRoom = () => {
                 <label className="block text-gray-700 font-bold mb-2" htmlFor="availability">
                     Availability:
                 </label>
-                <input
-                    type="text"
+
+                <select
+                    // type="text"
                     id="availability"
                     className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     value={availability}
                     onChange={(e) => setAvailability(e.target.value)}
                     required
-                />
+                >
+
+                    <option value='Available'>Available</option>
+                    <option value='Booked'>Booked</option>
+
+                </select>
             </div>
             <div className="mb-4">
                 <label className="block text-gray-700 font-bold mb-2" htmlFor="price">

@@ -8,8 +8,14 @@ import AdminPage from './HotelPage/AdminPanalPage/AdminPage';
 import GuestPage from './HotelPage/GuestPanalPage/GuestPage';
 import StaffPage from './HotelPage/StaffPanalPage/StaffPage';
 import BookRoom from './HotalComponents/GuestPortal/BookRoom';
-import BookRoomPage from './HotelPage/StaffPanalPage/BookRoomPage';
-import AvalibleRoomPage from './HotelPage/StaffPanalPage/AvalibleRoomPage';
+import BookRoomPage from './HotelPage/AdminPanalPage/BookRoomPage';
+import AvalibleRoomPage from './HotelPage/AdminPanalPage/AvalibleRoomPage';
+import GuestProfilePage from './HotelPage/GuestPanalPage/GuestProfilePage';
+import GuestHistoryPage from './HotelPage/GuestPanalPage/GuestHistoryPage';
+import GuestFeedbackpage from './HotelPage/GuestPanalPage/GuestFeedbackpage';
+import AddStaffPage from './HotelPage/AdminPanalPage/AddStaffPage';
+import AllStaffPage from './HotelPage/AdminPanalPage/AllStaffPage';
+import YourRoomPage from './HotelPage/GuestPanalPage/YourRoomPage';
 // import AddRoom from './HotalComponents/StaffPortal/AddRoom';
 
 function HotelManagement() {
@@ -19,12 +25,18 @@ function HotelManagement() {
             <Route path='/Content' element={<Content />} />
             <Route path='/Login' element={<LoginPage />} />
             <Route path='/Signup' element={<SignupPage />} />
-            <Route path='/Admin' element={<AdminPage />} />
             <Route path='/Guest' element={<GuestPage />} />
             <Route path='/RoomBooking' element={<BookRoom />} />
+            <Route path='/YourRoom' element={<YourRoomPage />} />
+            <Route path='/Profile' element={<GuestProfilePage />} />
+            <Route path='/History' element={<GuestHistoryPage />} />
+            <Route path='/Feedback' element={<GuestFeedbackpage />} />
             <Route path='/Staff' element={<StaffPage />} />
-            <Route path='/Staff/AvalibleRoom' element={<AvalibleRoomPage />} />
-            <Route path='/Staff/BookedRoom' element={<BookRoomPage />} />
+            <Route path='/Admin' element={<AdminPage />} />
+            <Route path='/AllStaff' element={<AllStaffPage />} />
+            <Route path='/AddStaff' element={<AddStaffPage />} />
+            <Route path='/Admin/AvalibleRoom' element={<AvalibleRoomPage />} />
+            <Route path='/Admin/BookedRoom' element={<BookRoomPage />} />
         </Routes>
     )
 }

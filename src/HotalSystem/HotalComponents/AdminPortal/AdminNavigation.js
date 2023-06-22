@@ -14,8 +14,11 @@ function AdminNavigation() {
                             <span class="text-indigo-600">.</span></span>
                     </a>
                     <nav class="flex flex-wrap items-center mb-5 text-base md:mb-0 md:pl-8 md:ml-8 md:border-l md:border-gray-200">
-                        <Link class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Staff</Link>
-                        <Link class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Add-Staff</Link>
+                        <Link to='/Admin' class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Add-Room</Link>
+                        <Link to='/Admin/AvalibleRoom' class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Avalible Room</Link>
+                        <Link to='/Admin/BookedRoom' class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Booked Room</Link>
+                        <Link to='/AllStaff' class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Staff</Link>
+                        <Link to='/AddStaff' class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Add-Staff</Link>
                     </nav>
                 </div>
 

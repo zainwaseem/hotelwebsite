@@ -4,6 +4,16 @@ const fixedInputClass = "rounded-md appearance-none relative block w-full px-3 p
 
 const fields = [
     {
+        labelText: "Username",
+        labelFor: "username",
+        id: "username",
+        name: "username",
+        type: "text",
+        autoComplete: "username",
+        isRequired: true,
+        placeholder: "Username"
+    },
+    {
         labelText: "Email address",
         labelFor: "email-address",
         id: "email-address",
@@ -22,26 +32,37 @@ const fields = [
         autoComplete: "current-password",
         isRequired: true,
         placeholder: "Password"
+    },
+    {
+        labelText: "Confirm Password",
+        labelFor: "confirm-password",
+        id: "confirm-password",
+        name: "confirm-password",
+        type: "password",
+        autoComplete: "confirm-password",
+        isRequired: true,
+        placeholder: "Confirm Password"
     }
-]
+];
 let fieldsState = {};
+
 fields.forEach(field => fieldsState[field.id] = '');
 
-function Login() {
+function AddStaff() {
     const [userType, setUserType] = useState('');
-    const [loginState, setLoginState] = useState(fieldsState);
-    // console.log(loginState)
-    const handleChange = (e) => {
-        setLoginState({ ...loginState, [e.target.id]: e.target.value })
-    }
+
+    const [signupState, setSignupState] = useState(fieldsState);
+    // console.log(signupState)
+    const handleChange = (e) => setSignupState({ ...signupState, [e.target.id]: e.target.value });
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        authenticateUser();
+        console.log(signupState)
+        createAccount()
     }
 
-    //Handle Login API Integration here
-    const authenticateUser = () => {
+    //handle Signup API Integration here
+    const createAccount = () => {
 
     }
 
@@ -58,21 +79,21 @@ function Login() {
                     onChange={(e) => setUserType(e.target.value)}
                 >
                     <option value="" disabled>Select User Type</option>
-                    <option value="Guest">Guest</option>
+                    {/* <option value="Guest">Guest</option> */}
                     <option value="Staff">Staff</option>
-                    <option value="Admin">Admin</option>
+                    {/* <option value="Admin">Admin</option> */}
                 </select>
             </div>
-            <div className="-space-y-px">
+            <div className="">
                 {
                     fields.map(field =>
-                        <div key={field.id} className="my-5">
+                        <div className="my-5">
                             <label htmlFor={field.labelFor} className="sr-only">
                                 {field.labelText}
                             </label>
                             <input
-                                onChange={handleChange}
-                                value={loginState[field.id]}
+                                onChange={field.handleChange}
+                                value={field.value}
                                 id={field.id}
                                 name={field.name}
                                 type={field.type}
@@ -81,43 +102,26 @@ function Login() {
                                 placeholder={field.placeholder}
                             />
                         </div>
+
+
                     )
                 }
+                {/* <FormAction handleSubmit={handleSubmit} text="Signup" /> */}
+                <Link > <button
+                    type='submit'
+                    className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 mt-10"
+                    onSubmit={handleSubmit}
+                >
+
+                    Submit
+                </button>
+                </Link>
             </div>
 
-            <div className="flex items-center justify-between ">
-                <div className="flex items-center">
-                    <input
-                        id="remember-me"
-                        name="remember-me"
-                        type="checkbox"
-                        className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
-                    />
-                    <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                        Remember me
-                    </label>
-                </div>
 
-                <div className="text-sm">
-                    <a href="#" className="font-medium text-purple-600 hover:text-purple-500">
-                        Forgot your password?
-                    </a>
-                </div>
-            </div>
 
-            {/* <FormAction handleSubmit={handleSubmit} text="Login" /> */}
-            {/* <Link to={userType === "Guest" && ('/Room') || userType === "Staff" && ('/Form') || userType === "Admin" && ('/Form')} ><button */}
-            <Link to={userType === "Guest" && ('/Guest') || userType === "Staff" && ('/Staff') || userType === "Admin" && ('/Admin')} ><button
-                type='submit'
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 mt-10"
-                onSubmit={handleSubmit}
-            >
-
-                Login
-            </button></Link>
-
-        </form >
+        </form>
     )
 }
 
-export default Login
+export default AddStaff

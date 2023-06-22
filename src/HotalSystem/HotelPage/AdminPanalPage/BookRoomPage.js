@@ -1,14 +1,14 @@
 import React from 'react'
+import BookedRoom from '../../HotalComponents/AdminPortal/BookedRoom'
 import AdminNavigation from '../../HotalComponents/AdminPortal/AdminNavigation'
-import AddRoom from '../../HotalComponents/AdminPortal/AddRoom'
 
-function AdminPage() {
+function BookRoomPage() {
     return (
         <>
             <AdminNavigation />
-            <AddRoom />        </>
-
+            <BookedRoom />
+        </>
     )
 }
 
-export default AdminPage
+export default BookRoomPage

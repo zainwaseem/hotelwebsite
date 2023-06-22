@@ -1,14 +1,13 @@
 import React from 'react'
 import AdminNavigation from '../../HotalComponents/AdminPortal/AdminNavigation'
-import AddRoom from '../../HotalComponents/AdminPortal/AddRoom'
+import AllStaff from '../../HotalComponents/AdminPortal/AllStaff'
 
-function AdminPage() {
+function AllStaffPage() {
     return (
         <>
             <AdminNavigation />
-            <AddRoom />        </>
-
+            <AllStaff /></>
     )
 }
 
-export default AdminPage
+export default AllStaffPage

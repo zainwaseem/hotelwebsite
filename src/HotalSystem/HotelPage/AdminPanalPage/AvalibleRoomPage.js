@@ -1,14 +1,13 @@
 import React from 'react'
+import AvalibleRoom from '../../HotalComponents/AdminPortal/AvalibleRoom'
 import AdminNavigation from '../../HotalComponents/AdminPortal/AdminNavigation'
-import AddRoom from '../../HotalComponents/AdminPortal/AddRoom'
 
-function AdminPage() {
+function AvalibleRoomPage() {
     return (
         <>
             <AdminNavigation />
-            <AddRoom />        </>
-
+            <AvalibleRoom /></>
     )
 }
 
-export default AdminPage
+export default AvalibleRoomPage
