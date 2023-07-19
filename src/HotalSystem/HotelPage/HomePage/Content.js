@@ -1,13 +1,14 @@
-import React from 'react'
-import HomeNavigation from '../../HotalComponents/Home/HomeNavigation'
-import ContentItem from '../../HotalComponents/Home/ContentItem'
+import React from "react";
+import HomeNavigation from "../../HotalComponents/Home/HomeNavigation";
+import ContentItem from "../../HotalComponents/Home/ContentItem";
 
 function Content() {
-    return (
-        <>
-            <HomeNavigation />
-            <ContentItem /></>
-    )
+  return (
+    <>
+      <HomeNavigation />
+      <ContentItem />
+    </>
+  );
 }
 
-export default Content
+export default Content;

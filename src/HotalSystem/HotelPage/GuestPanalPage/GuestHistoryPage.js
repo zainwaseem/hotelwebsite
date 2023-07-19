@@ -1,13 +1,14 @@
-import React from 'react'
-import GuestNavigation from '../../HotalComponents/GuestPortal/GuestNavigation'
-import GuestHistory from '../../HotalComponents/GuestPortal/GuestHistory'
+import React from "react";
+import GuestNavigation from "../../HotalComponents/GuestPortal/GuestNavigation";
+import GuestHistory from "../../HotalComponents/GuestPortal/GuestHistory";
 
 function GuestHistoryPage() {
-    return (
-        <>
-            <GuestNavigation />
-            <GuestHistory /></>
-    )
+  return (
+    <>
+      {/* <GuestNavigation /> */}
+      <GuestHistory />
+    </>
+  );
 }
 
-export default GuestHistoryPage
+export default GuestHistoryPage;

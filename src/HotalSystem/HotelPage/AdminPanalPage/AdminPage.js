@@ -1,14 +1,14 @@
-import React from 'react'
-import AdminNavigation from '../../HotalComponents/AdminPortal/AdminNavigation'
-import AddRoom from '../../HotalComponents/AdminPortal/AddRoom'
+import React from "react";
+import AdminNavigation from "../../HotalComponents/AdminPortal/AdminNavigation";
+import AddRoom from "../../HotalComponents/AdminPortal/AddRoom";
 
 function AdminPage() {
-    return (
-        <>
-            <AdminNavigation />
-            <AddRoom />        </>
-
-    )
+  return (
+    <>
+      {/* <AdminNavigation /> */}
+      <AddRoom />{" "}
+    </>
+  );
 }
 
-export default AdminPage
+export default AdminPage;

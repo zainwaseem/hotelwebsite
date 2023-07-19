@@ -1,13 +1,14 @@
-import React from 'react'
-import GuestNavigation from '../../HotalComponents/GuestPortal/GuestNavigation'
-import YourRoom from '../../HotalComponents/GuestPortal/YourRoom'
+import React from "react";
+import GuestNavigation from "../../HotalComponents/GuestPortal/GuestNavigation";
+import YourRoom from "../../HotalComponents/GuestPortal/YourRoom";
 
 function YourRoomPage() {
-    return (
-        <>
-            <GuestNavigation />
-            <YourRoom /></>
-    )
+  return (
+    <>
+      {/* <GuestNavigation /> */}
+      {/* <YourRoom /> */}
+    </>
+  );
 }
 
-export default YourRoomPage
+export default YourRoomPage;

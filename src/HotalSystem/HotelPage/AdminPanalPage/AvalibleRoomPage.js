@@ -5,7 +5,7 @@ import AdminNavigation from '../../HotalComponents/AdminPortal/AdminNavigation'
 function AvalibleRoomPage() {
     return (
         <>
-            <AdminNavigation />
+            {/* <AdminNavigation /> */}
             <AvalibleRoom /></>
     )
 }

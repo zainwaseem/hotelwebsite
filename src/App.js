@@ -5,19 +5,25 @@
 // import HomePage from "./HotalSystem/pages/HomePage";
 // import { Home, Contact } from "./HotalSystem/components/Home/Home";
 // import RoomManage from "./HotalSystem/pages/Staffpages/RoomManage";
-import { useState } from "react";
+// import { useState } from "react";
 // import AvaliableRoom from "./HotalSystem/pages/Staffpages/AvaliableRoom";
 // import StaffDuty from "./HotalSystem/components/StaffManagement/StaffDuty";
 // import AddStaff from "./HotalSystem/components/StaffManagement/AddStaff";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import HotelManagement from "./HotalSystem/HotelManagement";
+import { useSelector } from "react-redux";
 
 export default function App() {
-  const [userType, setUserType] = useState(null);
+  const { currentUser } = useSelector((state) => state.user);
 
-  return <>
-
-    <HotelManagement />
-    {/* <Routes>
+  // console.log(currentUser && currentUser?.role);
+  // const [userType, setUserType] = useState(null);
+  //
+  return (
+    <>
+      <HotelManagement />
+      {/* <Routes>
 
       <Route path="/" element={<HomePage props={true} />} />
       <Route path="/Signin" element={<LoginPage />} />
@@ -30,5 +36,14 @@ export default function App() {
 
     </Routes> */}
 
-  </>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        theme="light"
+      />
+    </>
+  );
 }

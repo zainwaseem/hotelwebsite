@@ -1,16 +1,15 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import HomeNavigation from '../../HotalComponents/Home/HomeNavigation'
-import HomeContent from '../../HotalComponents/Home/HomeItem'
+import React from "react";
+import HomeNavigation from "../../HotalComponents/Home/HomeNavigation";
+import HomeContent from "../../HotalComponents/Home/HomeItem";
 
 function Home() {
-    // const [showHome, setShowHome] = useState()
-    // const [showContact, setShowContact] = useState(false)
-    return (<>
-        <HomeNavigation />
-        <HomeContent />
+  // const [showHome, setShowHome] = useState()
+  // const [showContact, setShowContact] = useState(false)
+  return (
+    <>
+      <HomeContent />
     </>
-    )
+  );
 }
 
-export default Home
+export default Home;
