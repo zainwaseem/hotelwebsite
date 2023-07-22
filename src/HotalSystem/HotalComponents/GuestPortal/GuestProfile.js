@@ -37,7 +37,6 @@ function GuestProfile() {
       const res = await axios.patch(`${BACKEND_URL}users/${currentUser?._id}`, {
         username,
         email,
-        password,
       });
       if (res.data) {
         toast(res.data.message);

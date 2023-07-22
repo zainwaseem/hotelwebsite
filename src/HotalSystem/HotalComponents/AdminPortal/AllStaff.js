@@ -129,9 +129,9 @@ const AllStaff = () => {
     };
 
     postStaffData(staffData);
-    // Add logic to handle form submission
   };
   async function handleDeleteClick(id) {
+    console.log(id);
     try {
       const res = await axios.delete(`${BACKEND_URL}staff/${id}`);
       if (res.data) {
@@ -222,7 +222,7 @@ const AllStaff = () => {
                   </td>
                   <td
                     className="border text-red-400 font-bold cursor-pointer border-gray-500 px-4 py-2"
-                    onClick={() => handleDeleteClick(staff._id)}
+                    onClick={() => handleDeleteClick(staf._id)}
                   >
                     Delete
                   </td>

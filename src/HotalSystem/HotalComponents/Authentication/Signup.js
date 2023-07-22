@@ -85,25 +85,29 @@ function Signup() {
   const { currentUser } = useSelector((state) => state.user);
   return (
     <form className="mt-2 space-y-1" onSubmit={handleSubmit}>
-      <div className="mb-4">
-        <label
-          className="block text-gray-700 font-bold mb-2"
-          htmlFor="userType"
-        >
-          User Role:
-        </label>
-        <select
-          id="userType"
-          className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          value={userType}
-          onChange={(e) => setUserType(e.target.value)}
-        >
-          <option value="">Select User Role</option>
-          <option value="Guest">Guest</option>
-          {currentUser?.role === `admin` && <option value="staff">staff</option>}
-          {/* <option value="Admin">Admin</option> */}
-        </select>
-      </div>
+      {currentUser?.role === `admin` && (
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 font-bold mb-2"
+            htmlFor="userType"
+          >
+            User Role:
+          </label>
+          <select
+            id="userType"
+            className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            value={userType}
+            onChange={(e) => setUserType(e.target.value)}
+          >
+            <option value="">Select User Role</option>
+            <option value="Guest">Guest</option>
+            {currentUser?.role === `admin` && (
+              <option value="staff">staff</option>
+            )}
+            {/* <option value="Admin">Admin</option> */}
+          </select>
+        </div>
+      )}
       <div className="">
         {fields.map((field) => (
           <div className="my-5">
