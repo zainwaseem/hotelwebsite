@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { BACKEND_URL } from "../../../Url";
+import { useSelector } from "react-redux";
 const fixedInputClass =
   "rounded-md appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-purple-500 focus:border-purple-500 focus:z-10 sm:text-sm";
 
@@ -62,7 +63,6 @@ function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(signupState);
     createAccount();
   };
 
@@ -73,10 +73,8 @@ function Signup() {
       if (res.data.message) {
         if (res.status !== 200) {
           return toast(res.data.message);
-          console.log(res.data.message);
         }
         if (res.status === 200) {
-          console.log(res.data.message);
           toast(res.data.message);
         }
       }
@@ -84,7 +82,7 @@ function Signup() {
       toast.error(`Something went Wrong` + error.message);
     }
   };
-
+  const { currentUser } = useSelector((state) => state.user);
   return (
     <form className="mt-2 space-y-1" onSubmit={handleSubmit}>
       <div className="mb-4">
@@ -100,11 +98,9 @@ function Signup() {
           value={userType}
           onChange={(e) => setUserType(e.target.value)}
         >
-          <option value="" disabled>
-            Select User Role
-          </option>
+          <option value="">Select User Role</option>
           <option value="Guest">Guest</option>
-          <option disabled>Staff</option>
+          {currentUser?.role === `admin` && <option value="staff">staff</option>}
           {/* <option value="Admin">Admin</option> */}
         </select>
       </div>

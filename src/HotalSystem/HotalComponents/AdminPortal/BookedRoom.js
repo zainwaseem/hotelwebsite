@@ -17,6 +17,7 @@ function BookedRoom() {
   }, []);
   return (
     <>
+
       <div
         className="flex items-center bg-white w-screen min-h-screen"
         style={{ fontFamily: "Muli" }}

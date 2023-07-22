@@ -3,6 +3,7 @@ import { BACKEND_URL } from "../../../Url";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const roomArray = [
   {
@@ -13,6 +14,8 @@ const roomArray = [
   },
 ];
 const AddRoom = () => {
+  const { currentUser } = useSelector((state) => state.user);
+
   // const [selectedImage, setSelectedImage] = useState(null);
   const [roomType, setRoomType] = useState("");
   const [availability, setAvailability] = useState("Available");
@@ -62,12 +65,29 @@ const AddRoom = () => {
 
   return (
     <div>
+      {/* {currentUser.role === `guest` && (
+        <section className="px-2 py-32 bg-white md:px-0">
+          <div className="container items-center max-w-6xl px-8 mx-auto xl:px-5">
+            <div className="flex justify-center flex-wrap items-center sm:-mx-3">
+              <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
+                <span className="block xl:inline">Welcome to </span>
+                <span className="block text-indigo-600 xl:inline">
+                  {currentUser.role} Portal
+                </span>
+              </h1>
+              <p className="mx-auto text-center text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl">
+                A luxurious retreat offering exceptional accommodations,
+                impeccable service, and memorable experiences.
+              </p>
+            </div>
+          </div>
+        </section>
+      )} */}
       {showToast && (
         <div className="bg-green-500 text-white text-center py-2 px-4 mb-4">
           Room data submitted successfully!
         </div>
       )}
-
       <form onSubmit={handleSubmit} className="max-w-md mx-auto">
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2" htmlFor="image">

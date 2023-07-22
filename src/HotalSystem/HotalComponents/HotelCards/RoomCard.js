@@ -64,7 +64,6 @@ function RoomCard({
             {props === "guest" && (
               <Link
                 to="#"
-
                 onClick={() => handleBooking(id)}
                 className="rounded-full bg-purple-900 text-white hover:bg-white hover:text-purple-900 hover:shadow-xl focus:outline-none w-10 h-10 flex ml-auto transition duration-300"
               >

@@ -38,7 +38,7 @@ let fieldsState = {};
 fields.forEach((field) => (fieldsState[field.id] = ""));
 
 function Login() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch();   
   const navigate = useNavigate();
 
   const [userType, setUserType] = useState("");

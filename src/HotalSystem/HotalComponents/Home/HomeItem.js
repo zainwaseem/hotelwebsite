@@ -1,4 +1,4 @@
-import React from "react";
+import bg from "../../../assets/bg.avif";
 
 function HomeContent() {
   return (
@@ -18,22 +18,13 @@ function HomeContent() {
                   A luxurious retreat offering exceptional accommodations,
                   impeccable service, and memorable experiences.
                 </p>
-                {/* <div className="relative flex flex-col sm:flex-row sm:space-x-4">
-                                    <a href="#_" className="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-indigo-600 rounded-md sm:mb-0 hover:bg-indigo-700 sm:w-auto">
-                                        Try It Free
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                                    </a>
-                                    <a href="#_" className="flex items-center px-6 py-3 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 hover:text-gray-600">
-                                        Learn More
-                                    </a>
-                                </div> */}
               </div>
             </div>
             <div className="w-full md:w-1/2">
               <div className="w-full h-auto overflow-hidden rounded-md shadow-xl sm:rounded-xl">
                 <img
                   alt=""
-                  src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGhvdGVsfGVufDB8fDB8fHww&auto=format&fit=crop&w=fit&q=60"
+                  src={bg}
                 />
               </div>
             </div>
