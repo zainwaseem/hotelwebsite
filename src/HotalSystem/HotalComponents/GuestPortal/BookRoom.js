@@ -1,5 +1,7 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { BACKEND_URL } from "../../../Url";
 
 function BookRoom() {
   const [bookings, setBookings] = useState([{}]);
@@ -40,7 +42,7 @@ function BookRoom() {
       setBookings(savedBookings);
     }
   }, []);
-  const handleBooking = (room) => {
+  const handleBooking = async (room) => {
     // room.preventDefault();
 
     if (checkInDate === "" || checkOutDate === "") {
@@ -61,6 +63,7 @@ function BookRoom() {
 
       // Store the updated booking history in browser storage
       localStorage.setItem("bookings", JSON.stringify(updatedBookings));
+
       setCheckInDate("");
       setCheckOutDate("");
       setErrorMsg("");

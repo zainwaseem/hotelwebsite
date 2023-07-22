@@ -42,7 +42,11 @@ let fieldsState = {};
 fields.forEach((field) => (fieldsState[field.id] = ""));
 
 function AddStaff() {
-  const [role, setRole] = useState("");
+  const getInitialState = () => {
+    const value = "staff";
+    return value;
+  };
+  const [role, setRole] = useState(getInitialState);
   const navigate = useNavigate();
 
   const [signupState, setSignupState] = useState({
@@ -56,12 +60,14 @@ function AddStaff() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     setSignupState({ ...signupState, role });
     console.log(signupState);
     createAccount();
   };
 
   const createAccount = async () => {
+    console.log(role)
     try {
       const res = await axios.post(`${BACKEND_URL}register`, signupState);
       if (res.data) {
@@ -70,7 +76,6 @@ function AddStaff() {
         }
         if (res.status === 200) {
           toast(res.data.message);
-          navigate("/users");
         }
       }
     } catch (error) {
@@ -92,10 +97,8 @@ function AddStaff() {
           value={role}
           onChange={(e) => setRole(e.target.value)}
         >
-          <option value="" disabled>
-            Select User Type
-          </option>
           <option value="staff">Staff</option>
+          <option value="guest">Guest</option>
           <option value="admin">Admin</option>
         </select>
       </div>

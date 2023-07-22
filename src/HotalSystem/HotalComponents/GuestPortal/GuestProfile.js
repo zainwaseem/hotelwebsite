@@ -14,7 +14,7 @@ function GuestProfile() {
   const [showToast, setShowToast] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
-  const handleUsernameChange = (e) => { 
+  const handleUsernameChange = (e) => {
     setUsername(e.target.value);
   };
 
@@ -37,6 +37,7 @@ function GuestProfile() {
       const res = await axios.patch(`${BACKEND_URL}users/${currentUser?._id}`, {
         username,
         email,
+        password,
       });
       if (res.data) {
         toast(res.data.message);
@@ -50,13 +51,11 @@ function GuestProfile() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Guest Profile</h1>
+      <h1 className="text-2xl font-bold mb-4">{currentUser.role} Profile</h1>
       {errorMsg && <div className="text-red-500 mb-4">{errorMsg}</div>}
-
       {showToast && (
         <div className="text-green-500 mb-4">Profile has been updated</div>
       )}
-
       <div className="mb-4">
         <label htmlFor="email" className="block text-sm font-medium mb-1">
           Email
@@ -81,42 +80,18 @@ function GuestProfile() {
           className="border border-gray-300 p-2 rounded"
         />
       </div>
-
-      {changepassword && (
-        <>
-          <div className="mb-4">
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium mb-1"
-            >
-              New Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={handlePasswordChange}
-              className="border border-gray-300 p-2 rounded"
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              htmlFor="confirmpassword"
-              className="block text-sm font-medium mb-1"
-            >
-              Confirm Password
-            </label>
-            <input
-              type="password"
-              id="confirmpassword"
-              value={confirmpassword}
-              onChange={handleconfirmPasswordChange}
-              className="border border-gray-300 p-2 rounded"
-            />
-          </div>
-        </>
-      )}
-
+      <div className="mb-4">
+        <label htmlFor="password" className="block text-sm font-medium mb-1">
+          New Password
+        </label>
+        <input
+          type="password"
+          id="password"
+          value={password}
+          onChange={handlePasswordChange}
+          className="border border-gray-300 p-2 rounded"
+        />
+      </div>
       <button
         onClick={handlePasswordUpdate}
         className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"

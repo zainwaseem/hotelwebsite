@@ -28,7 +28,7 @@ function Rooms() {
         {rooms.map((room, index) => (
           <RoomCard
             id={room?._id}
-            image={room?.img?.secure_url}
+            img={room?.img?.secure_url}
             roomType={room?.roomType}
             availability={room?.availability}
             price={room?.price}

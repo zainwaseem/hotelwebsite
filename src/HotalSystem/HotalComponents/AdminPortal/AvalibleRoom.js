@@ -3,7 +3,7 @@ import RoomCard from "../HotelCards/RoomCard";
 // import { rooms } from "../Data/RoomData";
 import axios from "axios";
 import { BACKEND_URL } from "../../../Url";
-import { useSelector } from "react-redux"
+import { useSelector } from "react-redux";
 
 function AvalibleRoom() {
   const [rooms, setRooms] = useState([]);
@@ -27,23 +27,18 @@ function AvalibleRoom() {
         style={{ fontFamily: "Muli" }}
       >
         <div className="container ml-auto mr-auto flex flex-wrap items-start">
-          {rooms.map(
-            (room, index) =>
-              room?.availability === "Available" && (
-                <>
-                  <RoomCard
-                    key={index}
-                    id={room._id}
-                    img={room?.img?.secure_url}
-                    roomType={room?.roomType}
-                    availability={room?.availability}
-                    price={room?.price}
-                    occupancyStatus={room?.occupancyStatus}
-                    props={currentUser?.role}
-                  />
-                </>
-              )
-          )}
+          {rooms.map((room, index) => (
+            <RoomCard
+              key={index}
+              id={room._id}
+              img={room?.img?.secure_url}
+              roomType={room?.roomType}
+              availability={room?.availability}
+              price={room?.price}
+              occupancyStatus={room?.occupancyStatus}
+              props={currentUser?.role}
+            />
+          ))}
         </div>
       </div>
     </>

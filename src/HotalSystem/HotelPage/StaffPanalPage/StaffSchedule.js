@@ -1,21 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 // import axios from 'axios';
 
 const StaffSchedule = () => {
-    const [staff, setStaff] = useState(['Jon']);
-    const [schedule, setSchedule] = useState([]);
-    const [date, setDate] = useState(Date)
-    const [availability, setAvailability] = useState(false);
-    const [assignedTasks, setAssignedTasks] = useState([{ schedules: 'asd', roles: 'weww' }]);
+  const [staff, setStaff] = useState(["Jon"]);
+  const [schedule, setSchedule] = useState([]);
+  const [date, setDate] = useState(Date);
+  const [availability, setAvailability] = useState(false);
+  const [assignedTasks, setAssignedTasks] = useState([
+    { schedules: "asd", roles: "weww" },
+  ]);
 
-
-    return (
-        <div className="container mx-auto p-4">
-            <h1 className="text-2xl font-bold mb-4">Staff Management</h1>
-
-
-
-            <div className="mb-4">
+  return (
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Staff Management</h1>
+      {/* <div className="mb-4">
                 <h2 className="text-lg font-bold mb-2">Availability</h2>
 
                 <div className=" items-center mb-2">
@@ -36,7 +34,6 @@ const StaffSchedule = () => {
                 </div>
 
             </div>
-
             <div>
                 <h2 className="text-lg font-bold mb-2">Assigned Tasks</h2>
                 <ul className="text-lg">
@@ -46,13 +43,9 @@ const StaffSchedule = () => {
                         </li>
                     ))}
                 </ul>
-            </div>
-
-
-        </div>
-    );
+            </div> */}
+    </div>
+  );
 };
 
-
-
-export default StaffSchedule
+export default StaffSchedule;

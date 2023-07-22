@@ -7,18 +7,23 @@ const Users = () => {
   const [users, setUsers] = useState([]);
 
   async function getrooms() {
-    const feedbacksRes = await axios.get(`${BACKEND_URL}users`);
-    setUsers(feedbacksRes?.data);
+    const usersRes = await axios.get(`${BACKEND_URL}users`);
+    setUsers(usersRes?.data);
   }
 
   useEffect(() => {
     getrooms();
   }, []);
+  async function handleDelete(id) {
+    const deleted = await axios.delete(`${BACKEND_URL}users/${id}`);
+    console.log(deleted?.data.mesage);
+    window.location.reload();
+  }
   return (
     <>
       <Link
         to="/createusers"
-        className="px-4 py-2 m-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+        className="px-4 py-2 m-4  bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
       >
         Add Account
       </Link>
@@ -77,8 +82,14 @@ const Users = () => {
                 </li>
               </ul> */}
               <div className="p-4 border-t mx-8 mt-2">
-                <button className="w-1/2 block mx-auto rounded-full bg-gray-900 hover:shadow-lg font-semibold text-white px-6 py-2">
+                <button className="w-1/2 block mx-auto rounded-full bg-gray-900 hover:shadow-lg font-semibold text-white px-4 py-1">
                   {user.role}
+                </button>
+                <button
+                  onClick={() => handleDelete(user._id)}
+                  className="w-1/2 block mx-auto rounded-full bg-red-400 hover:shadow-lg font-semibold text-white px-4 py-1 m-1"
+                >
+                  Delete
                 </button>
               </div>
             </div>

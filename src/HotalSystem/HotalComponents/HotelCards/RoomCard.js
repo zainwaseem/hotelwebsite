@@ -13,8 +13,13 @@ function RoomCard({
   price,
   occupancyStatus,
 }) {
-  const handleBooking = () => {
+  const handleBooking = async (id) => {
     console.log(img, roomType);
+    const bookres = await axios.patch(`${BACKEND_URL}rooms/${id}`, {
+      availability: `Booked`,
+    });
+    console.log(bookres.data.message);
+
     // const roomID = id;
     // window.location.href = `/RoomBooking?id=${roomID}`;
   };
@@ -24,6 +29,7 @@ function RoomCard({
       const res = await axios.delete(`${BACKEND_URL}rooms/${id}`);
       if (res.data) {
         toast(res.data.message);
+        window.location.reload();
       }
     } catch (err) {
       toast(err);
@@ -55,10 +61,11 @@ function RoomCard({
           </div>
           <div className="flex items-center">
             <div className="text-4xl text-white font-light">{price}</div>
-            {props === "Guest" && (
+            {props === "guest" && (
               <Link
-                to="/RoomBooking"
-                onClick={handleBooking}
+                to="#"
+
+                onClick={() => handleBooking(id)}
                 className="rounded-full bg-purple-900 text-white hover:bg-white hover:text-purple-900 hover:shadow-xl focus:outline-none w-10 h-10 flex ml-auto transition duration-300"
               >
                 <svg
@@ -80,7 +87,7 @@ function RoomCard({
                 </svg>
               </Link>
             )}
-            {props === "Staff" && (
+            {props === "admin" && (
               <>
                 <button
                   onClick={handleDeleteRoom}
