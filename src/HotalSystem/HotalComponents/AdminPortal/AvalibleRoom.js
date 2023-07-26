@@ -7,6 +7,8 @@ import { useSelector } from "react-redux";
 
 function AvalibleRoom() {
   const [rooms, setRooms] = useState([]);
+  const availableRooms =
+    rooms && rooms.filter((room) => room.availability === "Available");
 
   const { currentUser } = useSelector((state) => state.user);
 
@@ -27,7 +29,7 @@ function AvalibleRoom() {
         style={{ fontFamily: "Muli" }}
       >
         <div className="container ml-auto mr-auto flex flex-wrap items-start">
-          {rooms.map((room, index) => (
+          {availableRooms.map((room, index) => (
             <RoomCard
               key={index}
               id={room._id}

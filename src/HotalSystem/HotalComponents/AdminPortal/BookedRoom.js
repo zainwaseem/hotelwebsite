@@ -6,6 +6,8 @@ import { BACKEND_URL } from "../../../Url";
 
 function BookedRoom() {
   const [rooms, setRooms] = useState([]);
+  const availableRooms =
+    rooms && rooms.filter((room) => room.availability === "Booked");
 
   async function getrooms() {
     const feedbacksRes = await axios.get(`${BACKEND_URL}rooms`);
