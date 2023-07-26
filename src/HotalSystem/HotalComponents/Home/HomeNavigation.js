@@ -7,7 +7,6 @@ function HomeNavigation() {
   const [showHome, setShowHome] = useState();
   const [showContact, setShowContact] = useState(false);
   const { currentUser } = useSelector((state) => state.user);
-  // console.log(currentUser?.role);
   const dispatch = useDispatch();
 
   function handleLogout() {

@@ -38,73 +38,12 @@ function AdminNavigation() {
             </span>
           </a>
           <nav className="flex flex-wrap items-center mb-5 text-base md:mb-0 md:pl-8 md:ml-8 md:border-l md:border-gray-200">
-            {/* <Link
-              to="/Admin"
-              className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
-            >
-              Add-Room
-            </Link> */}
-            {/* <Link
-              to="/Admin/AvalibleRoom"
-              className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
-            >
-              Avalible Room
-            </Link>
-            <Link
-              to="/Admin/BookedRoom"
-              className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
-            >
-              Booked Room
-            </Link>
-            <Link
-              to="/AllStaff"
-              className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
-            >
-              Staff
-            </Link>
-            <Link
-              to="/AddStaff"
-              className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
-            >
-              Add-Staff
-            </Link>
-            <Link
-              to="/Guest"
-              className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-            >
-              Rooms
-            </Link>
-            <Link
-              to="/YourRoom"
-              className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-            >
-              Booked-Room
-            </Link>
-            <Link
-              to="/History"
-              className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-            >
-              History
-            </Link>
-            <Link
-              to="/Feedback"
-              className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-            >
-              Feedback
-            </Link>
-            <Link
-              to="/Profile"
-              className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-            >
-              Profile
-            </Link> */}
+            
           </nav>
         </div>
 
         <div className="inline-flex items-center ml-5 space-x-6 lg:justify-end">
-          {/* <Link to="/Login" className="text-base font-medium leading-6 text-gray-600 whitespace-no-wrap transition duration-150 ease-in-out hover:text-gray-900">
-                Sign in
-            </Link> */}
+    
           <Link
             to="/"
             onClick={handleLogout}

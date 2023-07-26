@@ -5,7 +5,6 @@ import GuestFeedback from "../../HotalComponents/GuestPortal/GuestFeedback";
 function GuestFeedbackpage() {
   return (
     <>
-      {/* <GuestNavigation /> */}
       <GuestFeedback />
     </>
   );

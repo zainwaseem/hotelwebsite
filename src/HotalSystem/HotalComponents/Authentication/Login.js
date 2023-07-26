@@ -43,7 +43,6 @@ function Login() {
 
   const [userType, setUserType] = useState("");
   const [loginState, setLoginState] = useState();
-  // console.log(userType);
   const handleChange = (e) => {
     setLoginState({ ...loginState, [e.target.name]: e.target.value });
   };
@@ -53,7 +52,6 @@ function Login() {
     authenticateUser();
   };
 
-  //Handle Login API Integration here
   const authenticateUser = async () => {
     dispatch(loginStart());
     try {
@@ -69,27 +67,7 @@ function Login() {
 
   return (
     <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-      {/* <div className="mb-4">
-        <label
-          className="block text-gray-700 font-bold mb-2"
-          htmlFor="userType"
-        >
-          User Type:
-        </label>
-        <select
-          id="userType"
-          className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          value={userType}
-          onChange={(e) => setUserType(e.target.value)}
-        >
-          <option value="" disabled>
-            Select User Type
-          </option>
-          <option value="Guest">Guest</option>
-          <option value="Staff">Staff</option>
-          <option value="Admin">Admin</option>
-        </select>
-      </div> */}
+     
       <div className="-space-y-px">
         {fields.map((field) => (
           <div key={field.id} className="my-5">
@@ -98,7 +76,6 @@ function Login() {
             </label>
             <input
               onChange={handleChange}
-              // value={loginState[field.id]}
               id={field.id}
               name={field.name}
               type={field.type}
@@ -127,24 +104,11 @@ function Login() {
         </div>
 
         <div className="text-sm">
-          {/* <a
-            href="#/"
-            className="font-medium text-purple-600 hover:text-purple-500"
-          >
-            Forgot your password?
-          </a> */}
+    
         </div>
       </div>
 
-      {/* <FormAction handleSubmit={handleSubmit} text="Login" /> */}
-      {/* <Link to={userType === "Guest" && ('/Room') || userType === "Staff" && ('/Form') || userType === "Admin" && ('/Form')} ><button */}
-      {/* <Link
-        to={
-          (userType === "Guest" && "/Guest") ||
-          (userType === "Staff" && "/Staff") ||
-          (userType === "Admin" && "/Admin")
-        }
-      > */}
+     
       <button
         type="submit"
         className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 mt-10"
@@ -152,7 +116,6 @@ function Login() {
       >
         Login
       </button>
-      {/* </Link> */}
     </form>
   );
 }

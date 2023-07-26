@@ -5,9 +5,6 @@ import { toast } from "react-toastify";
 
 function FeedbackReport() {
   const [users, setusers] = useState([
-    // { guestName: "jon", rating: 3, description: "here is all discription" },
-    // { guestName: "jon", rating: 3, description: "here is all discription" },
-    // { guestName: "jon", rating: 3, description: "here is all discription" },
   ]);
 
   async function getfeedbacks() {
@@ -37,10 +34,7 @@ function FeedbackReport() {
         users.map((item, index) => {
           return (
             <div key={index} className="container mx-auto h-full p-4 border-2">
-              {/* <h1 className="text-2xl uppercase font-bold ">
-                {index + 1} {""}
-                {item.guestName}
-              </h1> */}
+        
 
               <div className="h-10  mb-1 items-center">
                 <button
@@ -55,8 +49,6 @@ function FeedbackReport() {
               </div>
               <p
                 className="border w-100 border-gray-300 p-2 rounded mb-4"
-                // rows="4"
-                // placeholder="Write a description..."
               >
                 {item.description}
               </p>

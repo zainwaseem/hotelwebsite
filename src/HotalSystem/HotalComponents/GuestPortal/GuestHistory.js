@@ -4,7 +4,6 @@ function GuestHistory() {
     const [bookings, setBookings] = useState([]);
 
     useEffect(() => {
-        // Load booking history from browser storage (e.g., localStorage)
         const savedBookings = JSON.parse(localStorage.getItem('bookings'));
         if (savedBookings) {
             setBookings(savedBookings);
@@ -17,11 +16,8 @@ function GuestHistory() {
             timestamp: new Date().toLocaleString(),
         };
 
-        // Save the new booking to the history
         const updatedBookings = [...bookings, newBooking];
         setBookings(updatedBookings);
-
-        // Store the updated booking history in browser storage
         localStorage.setItem('bookings', JSON.stringify(updatedBookings));
     };
 

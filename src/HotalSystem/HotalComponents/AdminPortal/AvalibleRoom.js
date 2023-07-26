@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import RoomCard from "../HotelCards/RoomCard";
-// import { rooms } from "../Data/RoomData";
 import axios from "axios";
 import { BACKEND_URL } from "../../../Url";
 import { useSelector } from "react-redux";

@@ -20,17 +20,14 @@ import { useSelector } from "react-redux";
 import HomeNavigation from "./HotalComponents/Home/HomeNavigation";
 import FeedbackReport from "./FeedbackReport";
 import Users from "./HotalComponents/AdminPortal/Users";
-// import AddRoom from './HotalComponents/StaffPortal/AddRoom';
 
 function HotelManagement() {
   const { currentUser } = useSelector((state) => state.user);
-  // console.log(currentUser && currentUser?.role);
   return (
     <>
       <HomeNavigation />
 
       <Routes>
-        {/* {!currentUser.role ? <Route path="/" element={<Home />} /> : <Route path={`${currentUser?.role}`} element={<Home />}/>} */}
         <Route path="/" element={<Home />} />
         <Route path="/Content" element={<Content />} />
         <Route path="/Login" element={<LoginPage />} />

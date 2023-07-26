@@ -5,8 +5,6 @@ import YourRoom from "../../HotalComponents/GuestPortal/YourRoom";
 function YourRoomPage() {
   return (
     <>
-      {/* <GuestNavigation /> */}
-      {/* <YourRoom /> */}
     </>
   );
 }

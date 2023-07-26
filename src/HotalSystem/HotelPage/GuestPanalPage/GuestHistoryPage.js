@@ -5,7 +5,6 @@ import GuestHistory from "../../HotalComponents/GuestPortal/GuestHistory";
 function GuestHistoryPage() {
   return (
     <>
-      {/* <GuestNavigation /> */}
       <GuestHistory />
     </>
   );

@@ -6,6 +6,7 @@ import axios from "axios";
 
 function Rooms() {
   const [rooms, setRooms] = useState([]);
+  const [query, setQuery] = useState("");
 
   const { currentUser } = useSelector((state) => state.user);
 
@@ -39,22 +40,35 @@ function Rooms() {
           </div>
         </section>
       )}
+      <input
+        type="text"
+        placeholder="Search Room"
+        className="m-3 p-2 outline-blue-700 border-blue-800"
+        onChange={(e) => setQuery(e.target.value)}
+      />
       <div
         className="flex items-center bg-white w-screen min-h-screen"
         style={{ fontFamily: "Muli" }}
       >
         <div className="container ml-auto mr-auto flex flex-wrap items-start">
-          {rooms.map((room, index) => (
-            <RoomCard
-              id={room?._id}
-              img={room?.img?.secure_url}
-              roomType={room?.roomType}
-              availability={room?.availability}
-              price={room?.price}
-              occupancyStatus={room?.occupancyStatus}
-              props={currentUser?.role}
-            />
-          ))}
+          {rooms
+            .filter(
+              (r) =>
+                r.roomType.toLowerCase().includes(query) ||
+                r.price.toLowerCase().includes(query) ||
+                r.availability.toLowerCase().includes(query)
+            )
+            ?.map((room, index) => (
+              <RoomCard
+                id={room?._id}
+                img={room?.img?.secure_url}
+                roomType={room?.roomType}
+                availability={room?.availability}
+                price={room?.price}
+                occupancyStatus={room?.occupancyStatus}
+                props={currentUser?.role}
+              />
+            ))}
         </div>
       </div>
     </>

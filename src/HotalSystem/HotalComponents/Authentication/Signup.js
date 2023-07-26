@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { BACKEND_URL } from "../../../Url";
@@ -38,16 +37,6 @@ const fields = [
     isRequired: true,
     placeholder: "Password",
   },
-  //   {
-  //     labelText: "Confirm Password",
-  //     labelFor: "confirm-password",
-  //     id: "confirm-password",
-  //     name: "confirm-password",
-  //     type: "password",
-  //     autoComplete: "confirm-password",
-  //     isRequired: true,
-  //     placeholder: "Confirm Password",
-  //   },
 ];
 let fieldsState = {};
 
@@ -57,7 +46,6 @@ function Signup() {
   const [userType, setUserType] = useState("");
 
   const [signupState, setSignupState] = useState();
-  // console.log(signupState)
   const handleChange = (e) =>
     setSignupState({ ...signupState, [e.target.name]: e.target.value });
 
@@ -65,8 +53,6 @@ function Signup() {
     e.preventDefault();
     createAccount();
   };
-
-  //handle Signup API Integration here
   const createAccount = async () => {
     try {
       const res = await axios.post(`${BACKEND_URL}register`, signupState);
@@ -104,7 +90,6 @@ function Signup() {
             {currentUser?.role === `admin` && (
               <option value="staff">staff</option>
             )}
-            {/* <option value="Admin">Admin</option> */}
           </select>
         </div>
       )}
@@ -126,8 +111,6 @@ function Signup() {
             />
           </div>
         ))}
-        {/* <FormAction handleSubmit={handleSubmit} text="Signup" /> */}
-        {/* <Link to="/Login"> */}
         <button
           type="submit"
           className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 mt-10"
@@ -135,7 +118,6 @@ function Signup() {
         >
           Signup
         </button>
-        {/* </Link> */}
       </div>
     </form>
   );

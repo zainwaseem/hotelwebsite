@@ -5,7 +5,6 @@ import AddRoom from "../../HotalComponents/AdminPortal/AddRoom";
 function AdminPage() {
   return (
     <>
-      {/* <AdminNavigation /> */}
       <AddRoom />{" "}
     </>
   );

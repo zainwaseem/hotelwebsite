@@ -8,7 +8,6 @@ function GuestPage() {
   const { currentUser } = useSelector((state) => state.user);
   return (
     <>
-      {/* <GuestNavigation /> */}
       {currentUser.role === `admin` && (
         <div className="px-10 py-5 flex justify-between">
           <Link

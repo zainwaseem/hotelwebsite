@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
 
 const AllStaff = () => {
-  // State variables
   const [staff, setStaff] = useState([]);
   const { currentUser } = useSelector((state) => state.user);
   console.log(currentUser?.role);
@@ -78,7 +77,6 @@ const AllStaff = () => {
     setSchedules(updatedSchedules);
   };
 
-  // Function to handle adding a staff assignment
   const handleAddStaffAssignment = () => {
     if (selectedStaff && selectedRole && selectedSchedule) {
       const newAssignment = {
@@ -93,13 +91,11 @@ const AllStaff = () => {
     }
   };
 
-  // Function to handle deleting a staff assignment
   const handleDeleteStaffAssignment = (index) => {
     const updatedAssignments = assignedStaff.filter((_, i) => i !== index);
     setAssignedStaff(updatedAssignments);
   };
 
-  // Function to handle editing a staff assignment
   const handleEditStaffAssignment = (index) => {
     const assignmentToEdit = assignedStaff[index];
     setSelectedStaff(assignmentToEdit.staffId);

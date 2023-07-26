@@ -40,11 +40,6 @@ export default function UpdateInventory() {
         status,
       });
       toast.success(res.data.message);
-      // setToiletries("");
-      // setLinens("");
-      // setinventorylevels("");
-      // setStatus("");
-      // setequipment("");
       navigate("/inventory");
     } catch (error) {
       console.error("Error posting staff data:", error);

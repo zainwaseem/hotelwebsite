@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import { rooms } from "../Data/RoomData";
 import RoomCard from "../HotelCards/RoomCard";
 import axios from "axios";
 import { BACKEND_URL } from "../../../Url";

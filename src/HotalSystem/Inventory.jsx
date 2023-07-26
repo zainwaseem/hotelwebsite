@@ -105,12 +105,7 @@ export default function Inventory() {
                   >
                     Status
                   </th>{" "}
-                  {/* <th
-                    scope="col"
-                    className="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
-                  >
-                    Manage
-                  </th> */}
+      
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
