@@ -1,0 +1,19 @@
+.Materialcontainer {
+  min-height: 100vh;
+}
+
+.inventorytab:hover {
+  transition: 1s;
+
+  transform: scale(0.98);
+}
+.deleteIcon {
+  position: relative;
+}
+.crosicon {
+  position: absolute;
+  top: -34px;
+  right: -23px;
+}
+@media all and (max-width: 500px) {
+}

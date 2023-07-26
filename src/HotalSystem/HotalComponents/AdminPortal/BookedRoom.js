@@ -17,26 +17,26 @@ function BookedRoom() {
   }, []);
   return (
     <>
-
       <div
         className="flex items-center bg-white w-screen min-h-screen"
         style={{ fontFamily: "Muli" }}
       >
         <div className="container ml-auto mr-auto flex flex-wrap items-start">
-          {rooms.map(
-            (room, index) =>
-              room.availability === "Booked" && (
-                <RoomCard
-                  key={index}
-                  img={room?.img.secure_url}
-                  roomType={room?.roomType}
-                  availability={room?.availability}
-                  price={room?.price}
-                  occupancyStatus={room?.occupancyStatus}
-                  props="Guest"
-                />
-              )
-          )}
+          {rooms &&
+            rooms?.map(
+              (room, index) =>
+                room.availability === "Booked" && (
+                  <RoomCard
+                    key={index}
+                    img={room?.img.secure_url}
+                    roomType={room?.roomType}
+                    availability={room?.availability}
+                    price={room?.price}
+                    occupancyStatus={room?.occupancyStatus}
+                    props="Guest"
+                  />
+                )
+            )}
         </div>
       </div>
     </>

@@ -115,6 +115,10 @@ const AllStaff = () => {
     try {
       const res = await axios.post(`${BACKEND_URL}staff`, data);
       toast.success(res.data.message);
+      setName("");
+      setRole("");
+      setWorkSchedule("");
+      window.location.reload();
     } catch (error) {
       console.error("Error posting staff data:", error);
     }
@@ -205,7 +209,9 @@ const AllStaff = () => {
                 <th className="border border-gray-500 px-4 py-2">
                   Work Schedule
                 </th>
-                <th className="border border-gray-500 px-4 py-2">Manage</th>
+                {currentUser?.role === "staff" && (
+                  <th className="border border-gray-500 px-4 py-2">Manage</th>
+                )}
               </tr>
             </thead>
             <tbody>
@@ -220,12 +226,15 @@ const AllStaff = () => {
                   <td className="border border-gray-500 px-4 py-2">
                     {staf.workschedule}
                   </td>
-                  <td
-                    className="border text-red-400 font-bold cursor-pointer border-gray-500 px-4 py-2"
-                    onClick={() => handleDeleteClick(staf._id)}
-                  >
-                    Delete
-                  </td>
+
+                  {currentUser?.role === "staff" && (
+                    <td
+                      className="border text-red-400 font-bold cursor-pointer border-gray-500 px-4 py-2"
+                      onClick={() => handleDeleteClick(staf._id)}
+                    >
+                      Delete
+                    </td>
+                  )}
                 </tr>
               ))}
             </tbody>

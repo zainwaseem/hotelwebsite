@@ -18,7 +18,7 @@ function GuestPage() {
             Add-Room
           </Link>
           <Link
-            to="/Admin/BookedRoom"
+            to="/BookedRoom"
             className="px-1 bg-blue-500 p-2  font-medium leading-6 text-white hover:text-white"
           >
             Booked Rooms

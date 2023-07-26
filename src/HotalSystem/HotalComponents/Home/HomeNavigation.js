@@ -36,31 +36,12 @@ function HomeNavigation() {
             {currentUser?.role && (
               <>
                 <Link
-                  to="/Admin/AvalibleRoom"
-                  className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
-                >
-                  Avalible Room
-                </Link>
-
-                <Link
                   to="/AllStaff"
                   className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
                 >
                   Staff
                 </Link>
 
-                <Link
-                  to="/Guest"
-                  className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
-                >
-                  Rooms
-                </Link>
-                <Link
-                  to="/Feedback"
-                  className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
-                >
-                  Feedback
-                </Link>
                 <Link
                   to="/Profile"
                   className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
@@ -70,12 +51,44 @@ function HomeNavigation() {
               </>
             )}
             {currentUser?.role === "admin" && (
-              <Link
-                to="/Users"
-                className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
-              >
-                Users
-              </Link>
+              <>
+                <Link
+                  to="/Users"
+                  className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
+                >
+                  Users
+                </Link>
+                <Link
+                  to="/inventory"
+                  className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
+                >
+                  Inventory
+                </Link>
+              </>
+            )}
+            {(currentUser?.role === "guest" ||
+              currentUser?.role === "admin") && (
+              <>
+                <Link
+                  to="/Feedback"
+                  className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
+                >
+                  Feedback
+                </Link>
+                <Link
+                  to="/AvalibleRoom"
+                  className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
+                >
+                  Avalible Room
+                </Link>
+
+                <Link
+                  to="/Guest"
+                  className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
+                >
+                  Rooms
+                </Link>
+              </>
             )}
           </nav>
         </div>

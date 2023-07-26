@@ -44,7 +44,6 @@ const AddRoom = () => {
         price,
         occupancyStatus,
       });
-      console.log(res.data);
       if (res.data) {
         toast(res.data.message);
         setRoomType("");
@@ -56,7 +55,7 @@ const AddRoom = () => {
         setTimeout(() => {
           setShowToast(false);
         }, 3000);
-        // navigate("/rooms");
+        navigate("/Guest");
       }
     } catch (err) {
       toast(err);
@@ -178,8 +177,8 @@ const AddRoom = () => {
             type="text"
             id="occupancyStatus"
             className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            value={occupancyStatus}
             onChange={(e) => setOccupancyStatus(e.target.value)}
+            value={occupancyStatus}
             required
           />
         </div>

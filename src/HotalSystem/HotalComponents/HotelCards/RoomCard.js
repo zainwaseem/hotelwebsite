@@ -37,6 +37,7 @@ function RoomCard({
   }
   return (
     <div className="w-full md:w-1/2 lg:w-1/4 pl-5 pr-5 mb-5 lg:pl-2 lg:pr-2">
+      
       <div className="bg-white rounded-lg m-h-64 p-2 transform hover:translate-y-2 hover:shadow-xl transition duration-300">
         <figure className="mb-2">
           <img
@@ -60,7 +61,7 @@ function RoomCard({
             <br />
           </div>
           <div className="flex items-center">
-            <div className="text-4xl text-white font-light">{price}</div>
+            <div className="text-4xl text-white font-light">{price}€</div>
             {props === "guest" && (
               <Link
                 to="#"
