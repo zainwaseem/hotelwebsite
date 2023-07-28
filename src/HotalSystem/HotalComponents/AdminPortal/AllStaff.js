@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
 
 const AllStaff = () => {
+  // State variables
   const [staff, setStaff] = useState([]);
   const { currentUser } = useSelector((state) => state.user);
   console.log(currentUser?.role);
@@ -77,6 +78,7 @@ const AllStaff = () => {
     setSchedules(updatedSchedules);
   };
 
+  // Function to handle adding a staff assignment
   const handleAddStaffAssignment = () => {
     if (selectedStaff && selectedRole && selectedSchedule) {
       const newAssignment = {
@@ -91,11 +93,13 @@ const AllStaff = () => {
     }
   };
 
+  // Function to handle deleting a staff assignment
   const handleDeleteStaffAssignment = (index) => {
     const updatedAssignments = assignedStaff.filter((_, i) => i !== index);
     setAssignedStaff(updatedAssignments);
   };
 
+  // Function to handle editing a staff assignment
   const handleEditStaffAssignment = (index) => {
     const assignmentToEdit = assignedStaff[index];
     setSelectedStaff(assignmentToEdit.staffId);
@@ -107,6 +111,25 @@ const AllStaff = () => {
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [workschedule, setWorkSchedule] = useState("");
+  const hotelStaffRoles = [
+    "General Manager",
+    "Front Desk Receptionist",
+    "Concierge",
+    "Housekeeping Staff",
+    "Bellhop/Porter",
+    "Maintenance Technician",
+    "Food and Beverage Staff",
+    "Executive Chef",
+    "Sales and Marketing Staff",
+    "Event Coordinator",
+    "Security Staff",
+    "Spa and Wellness Staff",
+    "Accounting and Finance Staff",
+    "Human Resources Staff",
+    "Laundry Staff",
+    // Add more roles as needed
+  ];
+
   async function postStaffData(data) {
     try {
       const res = await axios.post(`${BACKEND_URL}staff`, data);
@@ -164,25 +187,43 @@ const AllStaff = () => {
               <label htmlFor="role" className="block mb-2 font-medium">
                 Role
               </label>
-              <input
+              {/* <input
                 type="text"
                 id="role"
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-              />
+              /> */}
+              <select
+                onChange={(e) => setRole(e.target.value)}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              >
+                <option> select role</option>
+                {hotelStaffRoles.map((item) => (
+                  <option>{item}</option>
+                ))}
+              </select>
             </div>
             <div className="mb-4">
               <label htmlFor="workSchedule" className="block mb-2 font-medium">
                 Work Schedule
               </label>
-              <input
+              {/* <input
                 type="text"
                 id="workSchedule"
                 value={workschedule}
                 onChange={(e) => setWorkSchedule(e.target.value)}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-              />
+              /> */}
+              <select
+                onChange={(e) => setWorkSchedule(e.target.value)}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              >
+                <option> select Schedule</option>
+                <option> Morning</option>
+                <option> Evening</option>
+                <option> Night</option>
+              </select>
             </div>
             <button
               type="submit"

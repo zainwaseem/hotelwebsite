@@ -14,12 +14,11 @@ function RoomCard({
   occupancyStatus,
 }) {
   const handleBooking = async (id) => {
-    console.log(img, roomType);
     const bookres = await axios.patch(`${BACKEND_URL}rooms/${id}`, {
       availability: `Booked`,
     });
-    console.log(bookres.data.message);
-
+    // toast(`Booked`);
+    toast(bookres.data.message);
   };
   async function handleDeleteRoom(e) {
     e.preventDefault();
@@ -59,7 +58,7 @@ function RoomCard({
           </div>
           <div className="flex items-center">
             <div className="text-4xl text-white font-light">{price}€</div>
-            {props === "guest" && (
+            {props === "guest" && availability === "Available" && (
               <Link
                 to="#"
                 onClick={() => handleBooking(id)}

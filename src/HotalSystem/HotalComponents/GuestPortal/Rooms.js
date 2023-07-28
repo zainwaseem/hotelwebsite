@@ -28,7 +28,7 @@ function Rooms() {
             <div className="flex justify-center flex-wrap items-center sm:-mx-3">
               <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
                 <span className="block xl:inline">Welcome to </span>
-                <span className="block text-indigo-600 xl:inline">
+                <span className="block uppercase text-indigo-600 xl:inline">
                   {currentUser.role} Portal
                 </span>
               </h1>
