@@ -105,7 +105,6 @@ export default function Inventory() {
                   >
                     Status
                   </th>{" "}
-      
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -115,6 +114,10 @@ export default function Inventory() {
                       (employee) =>
                         employee.toiletries.toLowerCase().includes(query) ||
                         employee.equipment.toLowerCase().includes(query) ||
+                        employee.status.toLowerCase().includes(query) ||
+                        employee.inventorylevels
+                          .toLowerCase()
+                          .includes(query) ||
                         employee.linens.toLowerCase().includes(query)
                     )
                     ?.map((i) => (

@@ -38,7 +38,7 @@ let fieldsState = {};
 fields.forEach((field) => (fieldsState[field.id] = ""));
 
 function Login() {
-  const dispatch = useDispatch();   
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [userType, setUserType] = useState("");
@@ -57,7 +57,9 @@ function Login() {
     try {
       const res = await axios.post(`${BACKEND_URL}login`, loginState);
       console.log(res.data.user.role);
+
       dispatch(loginSuccess(res.data.user));
+
       toast(res.data.token);
       navigate(`/${res.data.user.role}`);
     } catch (error) {
@@ -67,7 +69,6 @@ function Login() {
 
   return (
     <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-     
       <div className="-space-y-px">
         {fields.map((field) => (
           <div key={field.id} className="my-5">
@@ -103,12 +104,9 @@ function Login() {
           </label>
         </div>
 
-        <div className="text-sm">
-    
-        </div>
+        <div className="text-sm"></div>
       </div>
 
-     
       <button
         type="submit"
         className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 mt-10"

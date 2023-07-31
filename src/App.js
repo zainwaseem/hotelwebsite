@@ -30,7 +30,6 @@ export default function App() {
   return (
     <>
       <HomeNavigation />
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Content" element={<Content />} />

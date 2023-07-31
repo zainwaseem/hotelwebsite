@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { BACKEND_URL } from "../../../Url";
@@ -29,19 +29,30 @@ function GuestProfile() {
     setPassword(e.target.value);
   };
 
+  async function getuser() {
+    const feedbacksRes = await axios.get(
+      `${BACKEND_URL}users/${currentUser?._id}`
+    );
+    setUsername(feedbacksRes?.data.username);
+    setEmail(feedbacksRes?.data.email);
+    setPassword(feedbacksRes?.data.password);
+  }
+
+  useEffect(() => {
+    getuser();
+  }, []);
   const handlePasswordUpdate = async () => {
     // if (username === "" || email === "") {
     //   setErrorMsg("Please enter enter User Name and email");
     // }
     try {
-      const res = await axios.patch(`${BACKEND_URL}users/${currentUser?._id}`, {
+      const res = await axios.put(`${BACKEND_URL}users/${currentUser?._id}`, {
         username,
         email,
+        password,
       });
       if (res.data) {
         toast(res.data.message);
-        setEmail(``);
-        setUsername(``);
       }
     } catch (err) {
       toast(err);
@@ -64,7 +75,7 @@ function GuestProfile() {
           id="email"
           onChange={handleEmailChange}
           className="border border-gray-300 p-2 rounded"
-          placeholder={currentUser?.email}
+          value={email}
         />
       </div>
       <div className="mb-4">
@@ -74,7 +85,7 @@ function GuestProfile() {
         <input
           type="text"
           id="username"
-          placeholder={currentUser?.username}
+          value={username}
           onChange={handleUsernameChange}
           className="border border-gray-300 p-2 rounded"
         />

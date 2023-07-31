@@ -47,6 +47,12 @@ function HomeNavigation() {
                 >
                   Profile
                 </Link>
+                <Link
+                  to="/inventory"
+                  className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
+                >
+                  Inventory
+                </Link>
               </>
             )}
             {currentUser?.role === "admin" && (
@@ -56,12 +62,6 @@ function HomeNavigation() {
                   className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
                 >
                   Users
-                </Link>
-                <Link
-                  to="/inventory"
-                  className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
-                >
-                  Inventory
                 </Link>
               </>
             )}
@@ -78,7 +78,7 @@ function HomeNavigation() {
                   to="/AvalibleRoom"
                   className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"
                 >
-                  Avalible Room
+                  Avalible Rooms
                 </Link>
 
                 <Link
