@@ -47,6 +47,10 @@ function HomeNavigation() {
                 >
                   Profile
                 </Link>
+              </>
+            )}{" "}
+            {currentUser?.role === `staff` && (
+              <>
                 <Link
                   to="/inventory"
                   className="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900"

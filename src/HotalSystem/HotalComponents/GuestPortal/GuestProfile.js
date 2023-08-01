@@ -97,7 +97,6 @@ function GuestProfile() {
         <input
           type="password"
           id="password"
-          value={password}
           onChange={handlePasswordChange}
           className="border border-gray-300 p-2 rounded"
         />
